@@ -32,22 +32,30 @@
       font-size: 20px;
       text-align: left;
       font-family: 'Work Sans', sans-serif;
-      color: rgba(192, 0, 5); /* Initial color for go back link */
+      color: rgba(192, 0, 5);
       text-decoration: none;
     }
 
     .go-back:visited {
-      color: red; /* Color for visited go back link */
+      color: red; 
     }
 
     .word-box {
-      border: 1px solid black;
-      padding: 10px;
-      margin: 5px auto;
-      font-family: 'Rethink Sans', sans-serif;
-      text-align: center;
-      max-width: 300px;
-    }
+  border: 1px dashed #C00005; 
+  padding: 10px;
+  margin: 5px auto;
+  font-family: 'Rethink Sans', sans-serif;
+  text-align: center;
+  max-width: 300px;
+}
+
+.word-box::before {
+  display: block;
+  font-size: 14px;
+  color: #aaa;
+  white-space: pre-wrap;
+}
+
 
     #generateButton {
       background-color: #C00005;
@@ -65,7 +73,6 @@
       transition: color 0.3s;
       font-family: 'Rethink Sans', sans-serif;
       text-transform: none;
-     
     }
 
     #generateButton:hover {
@@ -83,34 +90,36 @@
     }
 
     @media (max-width: 600px) {
-  #generateButton {
-    width: 100%; /* Make button full width */
-    margin: 10px auto; /* Add some margin for spacing */
-  }
-  .word-box {
-    max-width: 100%; /* Make word boxes full width */
-  }
-  .inter-box-text {
-    margin: 15px auto;
-  }
-}
-
-
+      #generateButton {
+        width: 100%; /* Make button full width */
+        margin: 10px auto; /* Add some margin for spacing */
+      }
+      .word-box {
+        max-width: 100%; /* Make word boxes full width */
+      }
+      .inter-box-text {
+        margin: 15px auto;
+      }
+    }
   </style>
 </head>
 <body>
 
   <a href="index.html" class="go-back">&#x2190; Go Back</a>
 
-  <h2>Random Word Generator</h2>
+  <h2>Let's interface</h2>
 
   <div id="wordContainer">
-    <div class="inter-box-text">Text between boxes 1 and 2</div>
+    <div class="inter-box-text">I will say:</div>
     <div class="word-box" id="word1"></div>
-    <div class="inter-box-text">Text between boxes 1 and 2</div>
+    <div class="inter-box-text">as my body</div>
     <div class="word-box" id="word2"></div>
-    <div class="inter-box-text">Text between boxes 2 and 3</div>
+    <div class="inter-box-text">the computer will</div>
     <div class="word-box" id="word3"></div>
+    <div class="inter-box-text">And the response will:</div>
+    <div class="word-box" id="word4"></div>
+    <div class="inter-box-text">My movements will feel like:</div>
+    <div class="word-box" id="word5"></div>
   </div>
 
   <div>
@@ -122,15 +131,21 @@
     var word1 = document.getElementById("word1");
     var word2 = document.getElementById("word2");
     var word3 = document.getElementById("word3");
+    var word4 = document.getElementById("word4");
+    var word5 = document.getElementById("word5"); // Added word5
     
     var source1 = ['dog', 'cat', 'parrot', 'chicken', 'cow'];
     var source2 = ['apple', 'banana', 'carrot', 'potato', 'tomato'];
     var source3 = ['house', 'watch', 'mask', 'stone', 'trip'];
+    var source4 = ['sun', 'moon', 'star', 'cloud', 'rain'];
+    var source5 = ['ocean', 'mountain', 'desert', 'forest', 'river']; // Added source5
 
     btn.addEventListener("click", function() {
       word1.textContent = getRandomWord(source1);
       word2.textContent = getRandomWord(source2);
       word3.textContent = getRandomWord(source3);
+      word4.textContent = getRandomWord(source4);
+      word5.textContent = getRandomWord(source5); // Set word5
     });
 
     function getRandomWord(sourceArray) {
