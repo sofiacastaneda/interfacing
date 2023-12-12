@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interface!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Work+Sans:wght@600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      background-color: #FFFFEB;
+      background-image: 
+        linear-gradient(0deg, rgba(192, 0, 5, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(192, 0, 5, 0.2) 1px, transparent 1px);
+      background-size: 30px 30px;
+      font-family: 'Rethink Sans', sans-serif;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Work Sans', sans-serif;
+    }
+
+    .go-back {
+      display: block;
+      margin: 10px;
+      font-size: 20px;
+      text-align: left;
+      font-family: 'Work Sans', sans-serif;
+      color: rgba(192, 0, 5); /* Initial color for go back link */
+      text-decoration: none;
+    }
+
+    .go-back:visited {
+      color: red; /* Color for visited go back link */
+    }
+
+    .word-box {
+      border: 1px solid black;
+      padding: 10px;
+      margin: 5px auto;
+      font-family: 'Rethink Sans', sans-serif;
+      text-align: center;
+      max-width: 300px;
+    }
+
+    #generateButton {
+      background-color: #C00005;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 10px 20px;
+      margin: 10px auto;
+      cursor: pointer;
+      display: block;
+      text-align: center;
+      line-height: 1.5;
+      min-width: 150px;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-family: 'Rethink Sans', sans-serif;
+      text-transform: none;
+     
+    }
+
+    #generateButton:hover {
+      color: #EF3E29;
+    }
+
+    #wordContainer {
+      text-align: center;
+    }
+
+    .inter-box-text {
+      text-align: center;
+      margin: 15px auto;
+      font-family: 'Rethink Sans', sans-serif;
+    }
+
+    @media (max-width: 600px) {
+  #generateButton {
+    width: 100%; /* Make button full width */
+    margin: 10px auto; /* Add some margin for spacing */
+  }
+  .word-box {
+    max-width: 100%; /* Make word boxes full width */
+  }
+  .inter-box-text {
+    margin: 15px auto;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="go-back">&#x2190; Go Back</a>
+
+  <h2>Random Word Generator</h2>
+
+  <div id="wordContainer">
+    <div class="inter-box-text">Text between boxes 1 and 2</div>
+    <div class="word-box" id="word1"></div>
+    <div class="inter-box-text">Text between boxes 1 and 2</div>
+    <div class="word-box" id="word2"></div>
+    <div class="inter-box-text">Text between boxes 2 and 3</div>
+    <div class="word-box" id="word3"></div>
+  </div>
+
+  <div>
+    <button id="generateButton">Generate</button>
+  </div>
+
+  <script>
+    var btn = document.getElementById("generateButton");
+    var word1 = document.getElementById("word1");
+    var word2 = document.getElementById("word2");
+    var word3 = document.getElementById("word3");
+    
+    var source1 = ['dog', 'cat', 'parrot', 'chicken', 'cow'];
+    var source2 = ['apple', 'banana', 'carrot', 'potato', 'tomato'];
+    var source3 = ['house', 'watch', 'mask', 'stone', 'trip'];
+
+    btn.addEventListener("click", function() {
+      word1.textContent = getRandomWord(source1);
+      word2.textContent = getRandomWord(source2);
+      word3.textContent = getRandomWord(source3);
+    });
+
+    function getRandomWord(sourceArray) {
+      var wordIndex = Math.floor(Math.random() * sourceArray.length);
+      return sourceArray[wordIndex];
+    }
+  </script>
+</body>
+</html>
