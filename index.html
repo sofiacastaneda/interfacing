@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>interfacing :-)</title>
+  <title>Interfacing :-)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/normalize.css">
@@ -13,27 +13,85 @@
       height: 100%;
       margin: 0;
       background-color: #FFFFEB;
+      background-image: 
+        linear-gradient(0deg, rgba(192, 0, 5, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(192, 0, 5, 0.2) 1px, transparent 1px);
+      background-size: 30px 30px; /* Increased size of the grid squares */
     }
     .spinner {
-      width: 35vw;
+      width: 20vw;
       display: block;
       position: fixed;
-      top: 50%;
+      top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
-      animation: spin 20s linear infinite; /* Even slower spin duration */
+      animation: spin 20s linear infinite;
     }
     @keyframes spin {
       from {
         transform: translate(-50%, -50%) rotate(0deg);
       }
       to {
-        transform: translate(-50%, -50%) rotate(-360deg); /* Negative value for counterclockwise rotation */
+        transform: translate(-50%, -50%) rotate(-360deg);
+      }
+    }
+    .button-container {
+      position: fixed;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .button-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .button {
+      background-color: #C00005;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 1.5;
+      min-width: 150px;
+      text-decoration: none;
+      display: inline-block;
+      transition: color 0.3s;
+    }
+    .button:hover {
+      color: #EF3E29;
+    }
+
+    @media (max-width: 600px) {
+      .spinner {
+        width: 50vw;
+      }
+      .button-container {
+        top: 70%;
+      }
+      .button {
+        width: 45%;
+        margin: 5px;
       }
     }
   </style>
 </head>
 <body>
   <img src="images/main.png" class="spinner">
+  <div class="button-container">
+    <div class="button-row">
+      <a href="helper.html" class="button">Interfacing Helper &#x3020;</a>
+    </div>
+    <div class="button-row">
+      <a href="book.html" class="button">Read the Book</a>
+      <a href="scrapbook.html" class="button">Scrapbook</a>
+      <a href="join.html" class="button">Join</a>
+    </div>
+  </div>
 </body>
 </html>
